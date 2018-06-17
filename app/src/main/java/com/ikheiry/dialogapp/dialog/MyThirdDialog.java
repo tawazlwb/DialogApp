@@ -11,42 +11,31 @@ import android.widget.Toast;
 import com.ikheiry.dialogapp.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-public class MySecondDialog extends DialogFragment{
+public class MyThirdDialog extends DialogFragment {
 
-    private List<String> mSelectedItems;
+    private String selection;
 
     @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
 
-        mSelectedItems = new ArrayList<>();
+        final String[] colors = getActivity().getResources().getStringArray(R.array.colors);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Pick your toppings");
+        builder.setTitle("Pick your color");
 
-        builder.setMultiChoiceItems(R.array.toppings, null, new DialogInterface.OnMultiChoiceClickListener() {
+        builder.setSingleChoiceItems(R.array.colors, -1, new DialogInterface.OnClickListener() {
             @Override
-            public void onClick(DialogInterface dialogInterface, int i, boolean b) {
-                String[] items = getActivity().getResources().getStringArray(R.array.toppings);
-
-                if(b){
-                    mSelectedItems.add(items[i]);
-                }else {
-                    mSelectedItems.remove(items[i]);
-                }
+            public void onClick(DialogInterface dialogInterface, int i) {
+                selection = colors[i];
             }
         });
 
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                String final_selection = "";
-                for (String item : mSelectedItems){
-                    final_selection += "\n" + item;
-                }
-                Toast.makeText(getActivity(), "Selection : " + final_selection, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Selected color : " + selection, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -59,5 +48,4 @@ public class MySecondDialog extends DialogFragment{
 
         return builder.create();
     }
-
 }

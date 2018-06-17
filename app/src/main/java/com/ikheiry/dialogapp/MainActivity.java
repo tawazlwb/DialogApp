@@ -4,8 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.ikheiry.dialogapp.dialog.FireMissileFragment;
-import com.ikheiry.dialogapp.dialog.MyDialog;
+import com.ikheiry.dialogapp.dialog.MyThirdDialog;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openDialog(View view) {
-        new MyDialog().show(getSupportFragmentManager(), "simpledialog");
+        new MyThirdDialog().show(getSupportFragmentManager(), "mythirddialog");
 
     }
 }
