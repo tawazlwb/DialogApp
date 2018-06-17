@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DialogApp</string>
+
+    <string-array name="colors">
+        <item>Red</item>
+        <item>Green</item>
+        <item>Blue</item>
+    </string-array>
 </resources>
