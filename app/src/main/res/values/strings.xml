@@ -12,4 +12,8 @@
         <item>Lettuce</item>
         <item>Tomato</item>
     </string-array>
+
+    <string name="user_real_name">administrator</string>
+    <string name="username">admin</string>
+    <string name="password">123</string>
 </resources>
